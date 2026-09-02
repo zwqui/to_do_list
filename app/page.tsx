@@ -18,5 +18,21 @@ export default function Home() {
   const [editandoId, setEditandoId] = useState<number | null>(null);
   const [textoEditado, setTextoEditado] = useState("");
 
+  const agregarTarea = (evento: KeyboardEvent<HTMLInputElement>) => {
+    if (evento.key !== "Enter") return;
+
+    const texto = nuevaTarea.trim();
+    if (!texto) return;
+
+    const nueva: Tarea = {
+      id: Date.now(),
+      texto,
+      completado: false,
+    };
+
+    setTareas([nueva, ...tareas]);
+    setNuevaTarea("");
+  };
+
   return <main>{}</main>;
 }
