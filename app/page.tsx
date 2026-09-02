@@ -61,5 +61,11 @@ export default function Home() {
     setEditandoId(null);
   };
 
+  const eliminarTarea = (id: number) => {
+    setTareas(tareas.filter((tarea) => tarea.id !== id));
+  };
+
+  const pendientes = tareas.filter((tarea) => !tarea.completado).length;
+
   return <main>{}</main>;
 }
