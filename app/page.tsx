@@ -67,5 +67,62 @@ export default function Home() {
 
   const pendientes = tareas.filter((tarea) => !tarea.completado).length;
 
-  return <main>{}</main>;
+  return (
+    <main className="contenedor-todo">
+      <section className="tarjeta-todo">
+        <header className="encabezado-todo">
+          <h1>Lista de pendientes</h1>
+          <p className="contador-todo">
+            {pendientes} de {tareas.length} pendientes
+          </p>
+        </header>
+
+        <input
+          className="entrada-todo"
+          type="text"
+          placeholder="Escribe una tarea y presiona Enter..."
+          value={nuevaTarea}
+          onChange={(e) => setNuevaTarea(e.target.value)}
+          onKeyDown={agregarTarea}
+        />
+
+        <ul className="lista-todo">
+          {tareas.length === 0 && (
+            <li className="lista-vacia">Aún no tienes tareas.</li>
+          )}
+
+          {tareas.map((tarea) => (
+            <li key={tarea.id} className="fila-tarea">
+              <input
+                type="checkbox"
+                checked={tarea.completado}
+                onChange={() => marcarTarea(tarea.id)}
+              />
+
+              {editandoId === tarea.id ? (
+                <input
+                  className="campo-edicion"
+                  type="text"
+                  value={textoEditado}
+                  onChange={(e) => setTextoEditado(e.target.value)}
+                  onBlur={confirmarEdicion}
+                  onKeyDown={(e) => e.key === "Enter" && confirmarEdicion()}
+                  autoFocus
+                />
+              ) : (
+                <span
+                  className={`texto-tarea ${tarea.completado ? "tachado" : ""}`}
+                  onClick={() => empezarEdicion(tarea)}
+                >
+                  {tarea.texto}
+                </span>
+              )}
+
+              <button onClick={() => eliminarTarea(tarea.id)}>✕</button>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+  );
 }
