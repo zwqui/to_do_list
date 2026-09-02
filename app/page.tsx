@@ -34,5 +34,13 @@ export default function Home() {
     setNuevaTarea("");
   };
 
+  const marcarTarea = (id: number) => {
+    setTareas(
+      tareas.map((tarea) =>
+        tarea.id === id ? { ...tarea, completado: !tarea.completado } : tarea
+      )
+    );
+  };
+
   return <main>{}</main>;
 }
