@@ -42,5 +42,24 @@ export default function Home() {
     );
   };
 
+  const empezarEdicion = (tarea: Tarea) => {
+    setEditandoId(tarea.id);
+    setTextoEditado(tarea.texto);
+  };
+
+  const confirmarEdicion = () => {
+    const texto = textoEditado.trim();
+
+    if (texto) {
+      setTareas(
+        tareas.map((tarea) =>
+          tarea.id === editandoId ? { ...tarea, texto } : tarea
+        )
+      );
+    }
+
+    setEditandoId(null);
+  };
+
   return <main>{}</main>;
 }
