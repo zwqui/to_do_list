@@ -1,26 +1,107 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #f4f4f2;
+  color: #1a1a1a;
+}
+
+.contenedor-todo {
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px;
+}
+
+.tarjeta-todo {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  border: 1px solid #e2e2e0;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.encabezado-todo h1 {
+  font-size: 20px;
+  margin: 0 0 4px;
+}
+
+.contador-todo {
+  font-size: 13px;
+  color: #6b6b68;
+  margin: 0 0 16px;
+}
+
+.entrada-todo {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #d8d8d5;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.entrada-todo:focus {
+  outline: none;
+  border-color: #999;
+}
+
+.lista-todo {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lista-vacia {
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+  padding: 16px 0;
+}
+
+.fila-tarea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid #ececea;
+  border-radius: 8px;
+}
+
+.texto-tarea {
+  flex: 1;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tachado {
+  text-decoration: line-through;
+  color: #a3a3a0;
+}
+
+.campo-edicion {
+  flex: 1;
+  padding: 4px 6px;
+  font-size: 14px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+.boton-eliminar {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: #999;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.boton-eliminar:hover {
+  background: #fbe8e8;
+  color: #c0392b;
 }
