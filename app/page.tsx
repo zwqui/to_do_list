@@ -1,5 +1,6 @@
 "use client";
 
+import { count } from "console";
 import { useState, type KeyboardEvent } from "react";
 
 type Tarea = {
@@ -10,6 +11,10 @@ type Tarea = {
 
 export default function Home() {
   const [tareas, setTareas] = useState<Tarea[]>([
+    { id: 1, texto: "Configurar el repositorio", completado: true },
+    { id: 2, texto: "Diseñar la interfaz", completado: false },
+  ]);
+  const [tareas_eliminadas, setEliminados] = useState<TareaEliminada[]>([
     { id: 1, texto: "Configurar el repositorio", completado: true },
     { id: 2, texto: "Diseñar la interfaz", completado: false },
   ]);
@@ -64,6 +69,9 @@ export default function Home() {
   const eliminarTarea = (id: number) => {
     setTareas(tareas.filter((tarea) => tarea.id !== id));
   };
+  const agregarTareaEliminada = (id: number) => {
+    setEliminados(tareas_eliminadas.filter((TareaEliminada) => TareaEliminada.id !== id));
+  };
 
   const pendientes = tareas.filter((tarea) => !tarea.completado).length;
 
@@ -74,6 +82,9 @@ export default function Home() {
           <h1>Lista de pendientes</h1>
           <p className="contador-todo">
             {pendientes} de {tareas.length} pendientes
+          </p>
+          <p>
+            Total de tareas: {tareas.length}
           </p>
         </header>
 
@@ -115,12 +126,15 @@ export default function Home() {
                   onClick={() => empezarEdicion(tarea)}
                 >
                   {tarea.texto}
-                </span>
-              )}
 
+                </span>
+            )}
               <button onClick={() => eliminarTarea(tarea.id)}>✕</button>
             </li>
           ))}
+          <li
+            value={tareas_eliminadas}
+          />
         </ul>
       </section>
     </main>
