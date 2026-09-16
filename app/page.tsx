@@ -67,11 +67,23 @@ export default function Home() {
     setEditandoId(null);
   };
 
-  const eliminarTarea = (id: number) => {
-    setTareas(tareas.filter((tarea) => tarea.id !== id));
+  const agregarTareaEliminada = (tarea: Tarea) => {
+    const eliminada: TareaEliminada = {
+      ...tarea,
+      eliminadaEn: new Date().toLocaleTimeString("es-CO", {
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
+    };
+
+    setEliminados([eliminada, ...tareas_eliminadas]);
   };
-  const agregarTareaEliminada = (id: number) => {
-    setEliminados(tareas_eliminadas.filter((TareaEliminada) => TareaEliminada.id !== id));
+
+  const eliminarTarea = (id: number) => {
+    const tarea = tareas.find((tarea) => tarea.id === id);
+    if (tarea) agregarTareaEliminada(tarea);
+
+   setTareas(tareas.filter((tarea) => tarea.id !== id));
   };
 
   const pendientes = tareas.filter((tarea) => !tarea.completado).length;
