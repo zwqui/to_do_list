@@ -160,6 +160,39 @@ const vaciarPapelera = () => {
             </li>
           ))}
         </ul>
+
+        <section className="papelera">
+          <div className="encabezado-papelera">
+            <h2>Papelera</h2>
+            <span className="contador-papelera">{tareas_eliminadas.length}</span>
+
+            {tareas_eliminadas.length > 0 && (
+              <button className="boton-vaciar" onClick={vaciarPapelera}>
+                Vaciar
+              </button>
+            )}
+          </div>
+
+          {tareas_eliminadas.length === 0 ? (
+            <p className="papelera-vacia">No has eliminado tareas.</p>
+          ) : (
+            <ul className="lista-papelera">
+              {tareas_eliminadas.map((eliminada) => (
+                <li key={eliminada.id} className="fila-eliminada">
+                  <span className="texto-eliminado">{eliminada.texto}</span>
+                  <span className="hora-eliminada">{eliminada.eliminadaEn}</span>
+                  <button
+                    className="boton-restaurar"
+                    onClick={() => restaurarTarea(eliminada.id)}
+                    title="Restaurar tarea"
+                  >
+                    ↺
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
       </section>
     </main>
   );
