@@ -9,15 +9,16 @@ type Tarea = {
   completado: boolean;
 };
 
+type TareaEliminada = Tarea & {
+  eliminadaEn: string;
+};
+
 export default function Home() {
   const [tareas, setTareas] = useState<Tarea[]>([
     { id: 1, texto: "Configurar el repositorio", completado: true },
     { id: 2, texto: "Diseñar la interfaz", completado: false },
   ]);
-  const [tareas_eliminadas, setEliminados] = useState<TareaEliminada[]>([
-    { id: 1, texto: "Configurar el repositorio", completado: true },
-    { id: 2, texto: "Diseñar la interfaz", completado: false },
-  ]);
+  const [tareas_eliminadas, setEliminados] = useState<TareaEliminada[]>([]);
 
   const [nuevaTarea, setNuevaTarea] = useState("");
   const [editandoId, setEditandoId] = useState<number | null>(null);
