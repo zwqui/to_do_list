@@ -156,7 +156,12 @@ const vaciarPapelera = () => {
 
                 </span>
             )}
-              <button onClick={() => eliminarTarea(tarea.id)}>✕</button>
+              <button
+                className="boton-eliminar"
+                onClick={() => eliminarTarea(tarea.id)}
+              >
+                ✕
+              </button>
             </li>
           ))}
         </ul>
