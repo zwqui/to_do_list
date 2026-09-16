@@ -85,6 +85,20 @@ export default function Home() {
 
    setTareas(tareas.filter((tarea) => tarea.id !== id));
   };
+   
+  const restaurarTarea = (id: number) => {
+   const eliminada = tareas_eliminadas.find((tarea) => tarea.id === id);
+   if (!eliminada) return;
+
+  const { eliminadaEn, ...tarea } = eliminada;
+
+  setTareas([tarea, ...tareas]);
+  setEliminados(tareas_eliminadas.filter((tarea) => tarea.id !== id));
+};
+
+const vaciarPapelera = () => {
+  setEliminados([]);
+};
 
   const pendientes = tareas.filter((tarea) => !tarea.completado).length;
 
@@ -145,9 +159,6 @@ export default function Home() {
               <button onClick={() => eliminarTarea(tarea.id)}>✕</button>
             </li>
           ))}
-          <li
-            value={tareas_eliminadas}
-          />
         </ul>
       </section>
     </main>
