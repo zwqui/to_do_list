@@ -105,3 +105,102 @@ body {
   background: #fbe8e8;
   color: #c0392b;
 }
+
+.papelera {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #ececea;
+}
+
+.encabezado-papelera {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.encabezado-papelera h2 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #6b6b68;
+}
+
+.contador-papelera {
+  font-size: 11px;
+  background: #ececea;
+  color: #6b6b68;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.boton-vaciar {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  color: #999;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+.boton-vaciar:hover {
+  background: #fbe8e8;
+  color: #c0392b;
+}
+
+.papelera-vacia {
+  font-size: 13px;
+  color: #a3a3a0;
+  text-align: center;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.lista-papelera {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fila-eliminada {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border: 1px dashed #e2e2e0;
+  border-radius: 8px;
+  background: #fafaf9;
+}
+
+.texto-eliminado {
+  flex: 1;
+  font-size: 13px;
+  color: #a3a3a0;
+  text-decoration: line-through;
+}
+
+.hora-eliminada {
+  font-size: 11px;
+  color: #c4c4c1;
+}
+
+.boton-restaurar {
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: transparent;
+  color: #999;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.boton-restaurar:hover {
+  background: #e8f3ec;
+  color: #2e7d4f;
+}
