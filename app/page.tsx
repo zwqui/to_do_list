@@ -106,7 +106,7 @@ const vaciarPapelera = () => {
     <main className="contenedor-todo">
       <section className="tarjeta-todo">
         <header className="encabezado-todo">
-          <h1>Lista de pendientes</h1>
+          <h1>Lista de pendientes (Deploy vercel)</h1>
           <p className="contador-todo">
             {pendientes} de {tareas.length} pendientes
           </p>
